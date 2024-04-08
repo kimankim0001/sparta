@@ -225,17 +225,24 @@
 
     </div>
 
-    <div id="map" style="width:500px;height:400px;"></div>
+    <div id="staticMap" style="width:600px;height:350px;"></div>
+
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=696bfa0dfe69ec69334bb416e0d4b07c"></script>
     <script>
-        var container = document.getElementById('map');
-        var options = {
-            center: new kakao.maps.LatLng(33.450701, 126.570667),
-            level: 3
+        var marker = {
+            position: new kakao.maps.LatLng(33.450701, 126.570667),
+            text: '텍스트를 표시할 수 있어요!'
         };
 
-        var map = new kakao.maps.Map(container, options);
+        var staticMapContainer = document.getElementById('staticMap'),
+            staticMapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                level: 3,
+                marker: marker
+            };
+
+        var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
     </script>
 
 </body>
